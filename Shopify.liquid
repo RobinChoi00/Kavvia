@@ -1,0 +1,78 @@
+<div id="loader-wrapper" style="width: 100%; display: flex; justify-content: center; align-items: center;">
+    <div id="loader-anchor" style="width: 100%; max-width: 1200px; min-height: 200px;">
+        <p id="loader-text" style="color: #999; font-size: 16px; text-align: center; padding: 50px;">
+            Initializing Product Content...
+        </p>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+    (function () {
+        // ============================================================
+        // [설정 영역] 여기 3줄만 제품에 맞게 바꾸세요!
+        // ============================================================
+        var productId   = "HonKon-EMS";  // 1. 제품 ID (영어/숫자, 띄어쓰기 X)
+        var productName = "HonKon EMS";  // 2. 로딩 화면에 뜰 제품 이름
+        // 3. 깃허브 폴더 주소 (마지막에 / 슬래시 필수!)
+        var githubUrl   = "https://RobinChoi00.github.io/Kavvia/Body%20Cavitation%20Devices/HONKON%20%20EMS%20Body%20Sculpting%20Device/";
+        // ============================================================
+
+
+        // [시스템 영역] 아래는 절대 건드리지 마세요 
+        var wrapper = document.getElementById('loader-wrapper');
+        var anchor  = document.getElementById('loader-anchor');
+        var text    = document.getElementById('loader-text');
+
+        // ID를 제품 전용 ID로 자동 변경 (충돌 방지)
+        if(wrapper) wrapper.id = productId + "-Wrapper";
+        if(anchor)  anchor.id  = productId + "-Anchor";
+        if(text)    text.innerText = "Loading " + productName + " Details...";
+
+        var uniqueAnchorId = productId + "-Anchor"; // 변경된 ID 추적
+        var v = new Date().getTime();
+
+        // 1. CSS 로드
+        $('head').append(`<link rel="stylesheet" href="${githubUrl}style.css?v=${v}" type="text/css" />`);
+        
+        // 2. HTML 로드
+        $.ajax({
+            url: githubUrl + "index.html",
+            data: { v: v },
+            dataType: "html",
+            success: function (data) {
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(data, "text/html");
+                var $content = $(doc.body).contents();
+
+                // 이미지 경로 수리
+                $content.find('img').each(function () {
+                    var src = $(this).attr('src');
+                    if (src && !src.startsWith('http')) {
+                        $(this).attr('src', githubUrl + src);
+                    }
+                });
+
+                // 스크립트 청소 및 주입
+                $content.find('script').remove();
+                $('#' + uniqueAnchorId).empty().append($content);
+
+                // 3. JS 실행 (오류 무시 처리 포함)
+                var script = document.createElement("script");
+                script.src = githubUrl + "script.js?v=" + v;
+                script.defer = true;
+                script.onerror = function() { console.log("Custom script not found (optional)."); };
+                document.body.appendChild(script);
+            },
+            error: function () {
+                $('#' + uniqueAnchorId).html(`
+                    <div style="text-align:center; color: red; padding: 20px;">
+                        <p>Failed to load content.</p>
+                        <p style="font-size:12px; color:#555;">Check GitHub URL:<br>
+                        <a href="${githubUrl}index.html" target="_blank">${githubUrl}index.html</a></p>
+                    </div>
+                `);
+            }
+        });
+    })();
+</script>

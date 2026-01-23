@@ -1,0 +1,204 @@
+/* [Global Reset] */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    -webkit-font-smoothing: antialiased; 
+    /* [変更] 背景を真っ白に */
+    background-color: #ffffff;
+    /* [変更] 基本テキスト色を濃い緑に */
+    color: #2d6a4f;
+}
+
+/* [Color Palette - Green Theme (色はそのまま活用)] */
+:root {
+    --kavvia-green-primary: #74c69d;  /* メインポイント（ミントグリーン） */
+    --kavvia-green-dark: #2d6a4f;     /* テキスト用・濃い緑 */
+    --kavvia-text-gray: #555555;      /* 本文用グレー */
+    --card-bg: #ffffff;               /* カード背景は白 */
+    --section-bg-light: #f8fcf9;      /* 薄い緑の背景（アクセント用） */
+}
+
+/* =========================================
+   ONLY SECTION: Features & Specs
+========================================= */
+#kavvia-specs-section {
+    padding: 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* [変更] セクション全体の背景も白に（または薄い緑のアクセントを入れても良い） */
+    background-color: #ffffff; 
+}
+
+#kavvia-specs-section .kavvia-container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 共通の見出しスタイル */
+.section-heading {
+    font-size: 28px;
+    font-weight: 700;
+    /* [変更] 見出しは濃い緑 */
+    color: var(--kavvia-green-dark);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* 1. Feature Grid (アイコン) */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 70px;
+}
+
+.feature-card {
+    /* [変更] カード背景は白 */
+    background: var(--card-bg);
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    /* 柔らかい影 */
+    box-shadow: 0 8px 20px rgba(45, 106, 79, 0.08);
+    transition: transform 0.3s ease;
+    /* [変更] 枠線を薄い緑にしてアクセントに */
+    border: 2px solid #e8f5e9; 
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    /* ホバー時に枠線を少し濃く */
+    border-color: var(--kavvia-green-primary);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    /* アイコンはミントグリーン */
+    fill: var(--kavvia-green-primary);
+    margin-bottom: 15px;
+}
+
+.feature-title {
+    font-size: 16px;
+    font-weight: 700;
+    /* [変更] タイトルは濃い緑 */
+    color: var(--kavvia-green-dark);
+    margin-bottom: 8px;
+}
+
+.feature-desc {
+    font-size: 13px;
+    /* [変更] 説明文は少し明るいグレー/緑 */
+    color: var(--kavvia-text-gray);
+    line-height: 1.4;
+}
+
+/* 2. Description Row (説明文) */
+.desc-row {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.desc-content .intro-text {
+    font-size: 16px;
+    line-height: 1.8;
+    /* [変更] 本文は読みやすいグレー */
+    color: var(--kavvia-text-gray);
+    max-width: 800px;
+    margin: 0 auto 25px;
+}
+
+.highlight-box {
+    display: inline-block;
+    /* [変更] 背景は非常に薄いミントグリーン */
+    background-color: #f1f8f3;
+    /* 左側の強調線はミントグリーン */
+    border-left: 4px solid var(--kavvia-green-primary);
+    padding: 20px 30px;
+    margin: 30px auto;
+    max-width: 750px;
+    font-size: 15px;
+    font-weight: 600;
+    font-style: italic;
+    /* [変更] テキストは濃い緑 */
+    color: var(--kavvia-green-dark);
+    border-radius: 0 8px 8px 0;
+}
+
+/* 3. Specs Table (スペック表) */
+.specs-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(45, 106, 79, 0.06);
+    /* 表全体を薄い緑の枠で囲む */
+    border: 1px solid #e8f5e9;
+}
+
+.section-divider {
+    width: 50px;
+    height: 3px;
+    background-color: var(--kavvia-green-primary);
+    margin: 0 auto 40px;
+    border-radius: 2px;
+}
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.specs-table th, .specs-table td {
+    padding: 16px 24px;
+    text-align: left;
+    /* 区切り線は非常に薄い緑 */
+    border-bottom: 1px solid #edf7ed;
+}
+
+.specs-table th {
+    width: 35%;
+    font-weight: 600;
+    /* [変更] ヘッダー文字は濃い緑 */
+    color: var(--kavvia-green-dark);
+    /* [変更] ヘッダー背景は非常に薄いミントグリーン */
+    background-color: #f8fcf9; 
+}
+
+.specs-table td {
+    /* [変更] データセルはグレー */
+    color: var(--kavvia-text-gray);
+    font-weight: 500;
+}
+
+.specs-table tr:last-child th, 
+.specs-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* [Mobile Responsive] */
+@media (max-width: 768px) {
+    #kavvia-specs-section {
+        padding: 60px 20px;
+        align-items: flex-start;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .specs-wrapper {
+        padding: 25px;
+    }
+
+    .specs-table th, .specs-table td {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+}
