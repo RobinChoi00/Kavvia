@@ -14,8 +14,7 @@ body {
     --kavvia-text-gray: #555555;
     --card-bg: #ffffff;
     --section-bg-light: #f8fcf9;
-    
-    /* [NEW] 요청하신 새로운 포인트 컬러 */
+    /* 요청하신 회색톤 녹색 (#616a61) */
     --custom-gray-green: #616a61; 
 }
 
@@ -36,16 +35,16 @@ body {
     margin: 0 auto;
 }
 
-/* [수정 2] 제목을 검은색으로 변경 */
+/* [강제 수정] 메인 제목 검은색 */
 .section-heading {
     font-size: 28px;
     font-weight: 700;
-    color: #000000; /* 검은색 */
+    color: #000000 !important; /* !important 추가 */
     text-align: center;
     margin-bottom: 25px;
 }
 
-/* 1. Feature Grid (아이콘 블록) */
+/* 1. Feature Grid */
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -68,25 +67,25 @@ body {
     border-color: var(--custom-gray-green);
 }
 
-/* [수정 3] 아이콘 색상 변경 (#616a61) */
+/* [강제 수정] 아이콘 색상 #616a61 */
 .feature-icon {
     width: 48px;
     height: 48px;
-    fill: var(--custom-gray-green); /* 색상 변경 */
+    fill: var(--custom-gray-green) !important; /* !important 추가 */
     margin-bottom: 15px;
 }
 
-/* [수정 3] 아이콘 아래 텍스트 색상 변경 (#616a61) */
+/* [강제 수정] 아이콘 제목 색상 #616a61 */
 .feature-title {
     font-size: 16px;
     font-weight: 700;
-    color: var(--custom-gray-green); /* 색상 변경 */
+    color: var(--custom-gray-green) !important; /* !important 추가 */
     margin-bottom: 8px;
 }
 
 .feature-desc {
     font-size: 13px;
-    color: var(--custom-gray-green); /* 색상 변경 */
+    color: var(--custom-gray-green) !important; 
     line-height: 1.4;
 }
 
@@ -104,23 +103,22 @@ body {
     margin: 0 auto 25px;
 }
 
-/* [수정 3] 초록색 칸(강조 박스) 텍스트 색상 변경 (#616a61) */
+/* [강제 수정] 강조 박스 텍스트 및 선 색상 #616a61 */
 .highlight-box {
     display: inline-block;
     background-color: #f1f8f3;
-    /* 왼쪽 선 색상도 톤을 맞추기 위해 변경 (원하시면 원래 초록색으로 둬도 됩니다) */
-    border-left: 4px solid var(--custom-gray-green); 
+    border-left: 4px solid var(--custom-gray-green) !important; /* 선 색상 강제 */
     padding: 20px 30px;
     margin: 30px auto;
     max-width: 750px;
     font-size: 15px;
     font-weight: 600;
     font-style: italic;
-    color: var(--custom-gray-green); /* 색상 변경 */
+    color: var(--custom-gray-green) !important; /* 글자 색상 강제 */
     border-radius: 0 8px 8px 0;
 }
 
-/* 3. Specs Table (스펙 표) */
+/* 3. Specs Table */
 .specs-wrapper {
     max-width: 850px;
     margin: 0 auto;
@@ -151,17 +149,16 @@ body {
     border-bottom: 1px solid #edf7ed;
 }
 
-/* [수정 1] 표의 항목(왼쪽) 검은색으로 변경 */
+/* [강제 수정] 표 텍스트 검은색 */
 .specs-table th {
     width: 35%;
     font-weight: 600;
-    color: #000000; /* 검은색 */
+    color: #000000 !important; /* 강제 적용 */
     background-color: #f8fcf9; 
 }
 
-/* [수정 1] 표의 내용(오른쪽) 검은색으로 변경 */
 .specs-table td {
-    color: #000000; /* 검은색 */
+    color: #000000 !important; /* 강제 적용 */
     font-weight: 500;
 }
 
@@ -170,22 +167,19 @@ body {
     border-bottom: none;
 }
 
-/* [Mobile Responsive] */
+/* [Mobile] */
 @media (max-width: 768px) {
     #kavvia-specs-section {
         padding: 60px 20px;
         align-items: flex-start;
     }
-
     .feature-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-
     .specs-wrapper {
         padding: 25px;
     }
-
     .specs-table th, .specs-table td {
         padding: 12px 15px;
         font-size: 14px;
