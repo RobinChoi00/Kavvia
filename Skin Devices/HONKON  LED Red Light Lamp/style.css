@@ -3,19 +3,19 @@
 body { 
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
     -webkit-font-smoothing: antialiased; 
-    /* [変更] 背景を真っ白に */
     background-color: #ffffff;
-    /* [変更] 基本テキスト色を濃い緑に */
-    color: #2d6a4f;
+    color: #363636;
 }
 
-/* [Color Palette - Green Theme (色はそのまま活用)] */
+/* [Color Palette] */
 :root {
-    --kavvia-green-primary: #74c69d;  /* メインポイント（ミントグリーン） */
-    --kavvia-green-dark: #2d6a4f;     /* テキスト用・濃い緑 */
-    --kavvia-text-gray: #555555;      /* 本文用グレー */
-    --card-bg: #ffffff;               /* カード背景は白 */
-    --section-bg-light: #f8fcf9;      /* 薄い緑の背景（アクセント用） */
+    --kavvia-green-primary: #74c69d;
+    --kavvia-green-dark: #2d6a4f;
+    --kavvia-text-gray: #555555;
+    --card-bg: #ffffff;
+    --section-bg-light: #f8fcf9;
+    /* 요청하신 회색톤 녹색 (#616a61) */
+    --custom-gray-green: #616a61; 
 }
 
 /* =========================================
@@ -26,7 +26,6 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    /* [変更] セクション全体の背景も白に（または薄い緑のアクセントを入れても良い） */
     background-color: #ffffff; 
 }
 
@@ -36,17 +35,16 @@ body {
     margin: 0 auto;
 }
 
-/* 共通の見出しスタイル */
+/* [강제 수정] 메인 제목 검은색 */
 .section-heading {
     font-size: 28px;
     font-weight: 700;
-    /* [変更] 見出しは濃い緑 */
-    color: var(--kavvia-green-dark);
+    color: #000000 !important; /* !important 추가 */
     text-align: center;
     margin-bottom: 25px;
 }
 
-/* 1. Feature Grid (アイコン) */
+/* 1. Feature Grid */
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -55,48 +53,43 @@ body {
 }
 
 .feature-card {
-    /* [変更] カード背景は白 */
     background: var(--card-bg);
     padding: 30px 20px;
     text-align: center;
     border-radius: 12px;
-    /* 柔らかい影 */
     box-shadow: 0 8px 20px rgba(45, 106, 79, 0.08);
     transition: transform 0.3s ease;
-    /* [変更] 枠線を薄い緑にしてアクセントに */
     border: 2px solid #e8f5e9; 
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
-    /* ホバー時に枠線を少し濃く */
-    border-color: var(--kavvia-green-primary);
+    border-color: var(--custom-gray-green);
 }
 
+/* [강제 수정] 아이콘 색상 #616a61 */
 .feature-icon {
     width: 48px;
     height: 48px;
-    /* アイコンはミントグリーン */
-    fill: var(--kavvia-green-primary);
+    fill: var(--custom-gray-green) !important; /* !important 추가 */
     margin-bottom: 15px;
 }
 
+/* [강제 수정] 아이콘 제목 색상 #616a61 */
 .feature-title {
     font-size: 16px;
     font-weight: 700;
-    /* [変更] タイトルは濃い緑 */
-    color: var(--kavvia-green-dark);
+    color: var(--custom-gray-green) !important; /* !important 추가 */
     margin-bottom: 8px;
 }
 
 .feature-desc {
     font-size: 13px;
-    /* [変更] 説明文は少し明るいグレー/緑 */
-    color: var(--kavvia-text-gray);
+    color: var(--custom-gray-green) !important; 
     line-height: 1.4;
 }
 
-/* 2. Description Row (説明文) */
+/* 2. Description Row */
 .desc-row {
     text-align: center;
     margin-bottom: 70px;
@@ -105,30 +98,27 @@ body {
 .desc-content .intro-text {
     font-size: 16px;
     line-height: 1.8;
-    /* [変更] 本文は読みやすいグレー */
     color: var(--kavvia-text-gray);
     max-width: 800px;
     margin: 0 auto 25px;
 }
 
+/* [강제 수정] 강조 박스 텍스트 및 선 색상 #616a61 */
 .highlight-box {
     display: inline-block;
-    /* [変更] 背景は非常に薄いミントグリーン */
     background-color: #f1f8f3;
-    /* 左側の強調線はミントグリーン */
-    border-left: 4px solid var(--kavvia-green-primary);
+    border-left: 4px solid var(--custom-gray-green) !important; /* 선 색상 강제 */
     padding: 20px 30px;
     margin: 30px auto;
     max-width: 750px;
     font-size: 15px;
     font-weight: 600;
     font-style: italic;
-    /* [変更] テキストは濃い緑 */
-    color: var(--kavvia-green-dark);
+    color: var(--custom-gray-green) !important; /* 글자 색상 강제 */
     border-radius: 0 8px 8px 0;
 }
 
-/* 3. Specs Table (スペック表) */
+/* 3. Specs Table */
 .specs-wrapper {
     max-width: 850px;
     margin: 0 auto;
@@ -136,7 +126,6 @@ body {
     padding: 40px;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(45, 106, 79, 0.06);
-    /* 表全体を薄い緑の枠で囲む */
     border: 1px solid #e8f5e9;
 }
 
@@ -157,22 +146,19 @@ body {
 .specs-table th, .specs-table td {
     padding: 16px 24px;
     text-align: left;
-    /* 区切り線は非常に薄い緑 */
     border-bottom: 1px solid #edf7ed;
 }
 
+/* [강제 수정] 표 텍스트 검은색 */
 .specs-table th {
     width: 35%;
     font-weight: 600;
-    /* [変更] ヘッダー文字は濃い緑 */
-    color: var(--kavvia-green-dark);
-    /* [変更] ヘッダー背景は非常に薄いミントグリーン */
+    color: #000000 !important; /* 강제 적용 */
     background-color: #f8fcf9; 
 }
 
 .specs-table td {
-    /* [変更] データセルはグレー */
-    color: var(--kavvia-text-gray);
+    color: #000000 !important; /* 강제 적용 */
     font-weight: 500;
 }
 
@@ -181,24 +167,45 @@ body {
     border-bottom: none;
 }
 
-/* [Mobile Responsive] */
+/* =========================================
+   [제품 상세 페이지 색상 커스텀]
+   제목: 검은색 / 품절 문구: 빨간색
+========================================= */
+
+/* 1. 제품 제목 (SHSA001...) 검은색 강제 적용 */
+h1.product_name, 
+.product_name, 
+.product-single__title {
+    color: #000000 !important;
+}
+
+/* 2. Sold Out (품절) 문구 빨간색 강제 적용 */
+.sold_out_text,      /* 테마마다 이름이 달라서 */
+.sold-out-text,      /* 여러 가지 가능성을 */
+.variant-status,     /* 다 적어두었습니다. */
+.product-mark.sold-out,
+span.sold_out {
+    color: #ff0000 !important; /* 빨간색 */
+}
+
+
+
+/* [Mobile] */
 @media (max-width: 768px) {
     #kavvia-specs-section {
         padding: 60px 20px;
         align-items: flex-start;
     }
-
     .feature-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-
     .specs-wrapper {
         padding: 25px;
     }
-
     .specs-table th, .specs-table td {
         padding: 12px 15px;
         font-size: 14px;
     }
 }
+
