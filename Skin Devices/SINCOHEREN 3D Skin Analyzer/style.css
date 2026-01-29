@@ -188,6 +188,18 @@ span.sold_out {
     color: #ff0000 !important; /* 빨간색 */
 }
 
+/* =========================================
+   [재입고 알림(Notify Me) 문구 색상 변경]
+   기본 녹색 -> 진한 회색(#363636)으로 변경
+========================================= */
+.notify_form .message,       /* 일반적인 테마 클래스명 */
+.notify_form p,              /* 폼 안의 문단 태그 */
+.notify_form__message,       /* 또 다른 가능성 */
+.notify-text {               /* 혹시 모를 이름 */
+    color: #363636 !important;
+    font-weight: normal;     /* 필요하면 굵기 조절 (bold / normal) */
+}
+
 
 /* [Mobile] */
 @media (max-width: 768px) {
