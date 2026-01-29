@@ -167,6 +167,28 @@ body {
     border-bottom: none;
 }
 
+/* =========================================
+   [제품 상세 페이지 색상 커스텀]
+   제목: 검은색 / 품절 문구: 빨간색
+========================================= */
+
+/* 1. 제품 제목 (SHSA001...) 검은색 강제 적용 */
+h1.product_name, 
+.product_name, 
+.product-single__title {
+    color: #000000 !important;
+}
+
+/* 2. Sold Out (품절) 문구 빨간색 강제 적용 */
+.sold_out_text,      /* 테마마다 이름이 달라서 */
+.sold-out-text,      /* 여러 가지 가능성을 */
+.variant-status,     /* 다 적어두었습니다. */
+.product-mark.sold-out,
+span.sold_out {
+    color: #ff0000 !important; /* 빨간색 */
+}
+
+
 /* [Mobile] */
 @media (max-width: 768px) {
     #kavvia-specs-section {
@@ -185,3 +207,4 @@ body {
         font-size: 14px;
     }
 }
+
